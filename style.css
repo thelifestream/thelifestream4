@@ -1,0 +1,970 @@
+/*
+Theme Name:     The Lifestream 4
+Theme URI:      http://fhtagn.thelifestream.net
+Description:    Child theme for the Twenty Eleven theme. Created to set up the Lifestream theme as a child to Twenty Eleven, which hopefully will be easier to integrate with Twenty Twelve when that time comes.
+Version:		4
+Author:         Fangu, based on TwentyEleven but also on TheLifestream 2.2 by Cthulhu
+Author URI: 	http://TheLifestream.net
+Template:       twentyeleven
+
+COLORS:
+
+ * #88888F Default font color
+ * #1C1D1D Dark greenish background color
+ * #7FCFCF Bright turquoise (links, etc)
+ * 
+*/
+
+@import url("../twentyeleven/style.css");
+
+/* FONTS */
+/* TODO: download the font and host from TLS. Maybe. */
+
+@font-face {
+  font-family: 'Radley';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Radley'), url(http://themes.googleusercontent.com/static/fonts/radley/v6/fE3I-GlsFHTITnHGmv57XA.woff) format('woff');
+}
+/*
+ * BASIC
+ */
+
+body {
+	/*font: Verdana, Arial, Sans-Serif;*/
+	background: #1C1D1D url('http://thelifestream.net/wp-content/themes/lifestream3/images/tlsbg2.gif') center;
+	color: #88888F;
+	margin: 0;
+	font: 14px Verdana, Sans-Serif;
+	line-height: 1.4;
+}
+
+li {
+	list-style-position: inside;
+}
+
+a {
+	color: #7FCFCF;
+}
+
+sub {
+	top: none;
+}
+
+sup, sub {
+	font-size: 12px;
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+
+
+/* =Structure
+----------------------------------------------- */
+
+#page {
+	margin: auto; /* No margin to top of page */
+	max-width: 1024px; /* Sets width of the entire content */
+	background: #051012; /* Sets background color for all things contenty */
+}
+
+
+/* =Header
+----------------------------------------------- */
+
+#branding { 
+	border-top: none; /* Was: 2px solid #BBBBBB */
+	position: relative;
+	z-index: 9999;
+}
+
+.tls_border {
+	background: url('http://thelifestream.net/forums/images/tls_border.gif') center;
+    height:27px; 
+    padding-left: 10%;
+
+    border: 4px solid transparent;
+  	border-top:0;
+  	border-bottom:0;
+    -webkit-border-image: url("images/side-border-short.png") 0 1 0 1 stretch stretch;
+    -moz-border-image: url("images/side-border-short.png") 0 1 0 1 stretch stretch;
+    -o-border-image: url("images/side-border-short.png") 0 1 0 1 stretch stretch;
+    border-image: url("images/side-border-short.png") 0 1 0 1 stretch stretch;
+}
+
+.frontpage-primary h3 {
+  margin-left: -9px;
+  display: inline-block;
+  font-family:'Radley';
+  font-size: 20px;
+  /*text-transform: capitalize;*/
+  font-variant: small-caps;
+}
+
+/* The next 3 are exclusive to Lifestream 4 layout: (REMOVE COMMENT) */
+#featured {
+
+	background: #224545;
+ 	background: -moz-linear-gradient(#224545, #062E2E);
+	background: -o-linear-gradient(#224545, #062E2E);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#224545), to(#062E2E)); /* older webkit syntax */
+	background: -webkit-linear-gradient(#224545, #062E2E);
+	width: auto;
+	padding: 7px 30px 7px 5px; /* top right bottom left */
+	margin: 0 4.5% 20px 4.5%;
+	font-size: 12px;
+	color: #7FCFCF;
+}
+
+#featured .textwidget {
+  background-image: url('http://thelifestream.net/forums/images/statusicon/subforum_new.gif');
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  background-position:left center;
+  padding-left: 20px;
+}
+
+/* Sidebar */
+
+#sidebarleft {
+	float: left;
+	/* background: #00FF00;  Green */
+	/*margin-left: 240px;*/
+	width: 208px;
+	padding: 2px 5px 2px 5px;
+}
+
+#sidebarright {
+	float: right;
+	background: #00FF00; /* Green */
+	width: 190px;
+	margin: 1px 1px 1px 1px;
+}
+
+#primary {
+	/*float: none;*/
+	/*background: #ff9900;*/
+	/*width: 79%;*/
+	/*margin-left: -720px;*/
+	/*margin: 1px -50% 1px 1px; Removed after putting the normal sidebar back in */
+	/*padding: 0;*/
+	/*margin: 0 -17% 0 0;*/
+ }
+ 
+ .left-sidebar #secondary {
+ 	margin-left: 1%; /* We want the sidebar further left; was 7.6% */ 
+ }
+ 
+ .left-sidebar #primary { 
+	margin: 0px 0px 0px -26.4%; /* ...and the main content area too, was 0px 0px 0px -26.4% */
+ }
+
+/* readjust content to fill the page now we've removed the sidebar */
+ .left-sidebar #content, .singular #content { 
+	margin: 0px 2% 0px 2%; /* ...and the main content area too, was 0px 7.6% 0px 34% */
+	width: 96%; /* was 58.4% */
+ }
+ 
+
+/* For Pages - they believe they are singular even if the sidebar is in there, so must move the content field */
+.singular #content, .left-sidebar.singular #content {
+	margin: 0 2% 0 2%; /* top right bottom left */
+	position: relative;
+	width: auto;
+}
+ 
+ /* Width of entry field in at least singular pages */
+.singular .entry-header, .singular .entry-content, .singular footer.entry-meta, .singular #comments-title {
+	width: 95%;
+}
+
+/* Edit- link for at least singular pages */
+.singular .entry-meta .edit-link a {
+	left: 600px;
+	top: 20px;
+}
+
+/* Margin for entry field in at least singular pages */
+.singular.page .hentry { 
+	padding: 1.3em 0 0 0;
+}
+
+/* For page template Index Pages only */
+#indexpages {
+	margin: 20px 20% 0 -15%; /* top right bottom left */
+	position: relative;
+	width: auto;
+}
+
+ 
+
+/* Overriding Widget CSS for Widgets in Sidebar */
+
+.widget-title {
+	color: #666;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	line-height: 2.6em;
+	text-transform: none;
+}
+
+ /* Widget areas = sidebar */
+
+.widget-area {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.widget ul {
+	font-size: 15px;
+	margin: 0;
+}
+.widget ul ul {
+	margin-left: 1.5em;
+}
+.widget ul li {
+	color: #88888F; /* was: #777 */
+	font-size: 12px; /* was: 14px */
+	list-style: square url("http://thelifestream.net/forums/images/statusicon/subforum_new.gif");
+	list-style-position: inside;
+}
+.widget a {
+	color: #88888F; /* was not here; inherited */
+	font-weight: normal; /* was: bold */
+	text-decoration: none;
+}
+.widget a:hover,
+.widget a:focus,
+.widget a:active {
+	color: #88888F; /* was not here; inherited */
+	text-decoration: underline;
+}
+
+.widget .menu-content-information-container {
+	margin-left: 3px;
+}
+ 
+ 
+ /* Stuff taken out here */
+ 
+/* One column - as long as left sidebar is activated, will not apply */
+.one-column #page {
+	/*max-width: 1024px;*/
+}
+
+.one-column #content { 
+	/*width: 90%;*/
+}
+
+.singular #primary { 
+/*margin: 1px -50% 1px 1px; Removed after going back to original sidebar */
+ }
+
+#supplementary {
+	border: none;
+}
+
+#site-generator {
+	background: #051012;
+	color: #88888F;
+	border: none;
+}
+
+#bottomstuff a,
+#bottomstuff a:visited {
+	color: #7FCFCF;
+	font-weight: normal;
+}
+
+
+
+/* Content fonts and stuff */
+
+
+.singular .entry-title, .entry-title a {
+	font-size: 32px;
+	font-weight: normal;
+	color: #7FCFCF;
+}
+
+.entry-title, .entry-title a {
+	font-size: 32px;
+	font-weight: normal;
+	color: #7FCFCF;
+}
+
+.entry-title a:hover, .entry-title a:focus, .entry-title a:active {
+	color: #7FCFCF;
+}
+
+/* Image caption background */
+.wp-caption {
+	background: #051012;
+}
+
+img[class*="align"], img[class*="wp-image-"], img {
+	border: 0;
+}
+	
+	
+.entry-content h1, .entry-content h2, .comment-content h1, .comment-content h2 {
+	color: #7FCFCF;
+}
+
+.entry-content h1 {
+	font-size: 200%;
+}
+
+.entry-content h2 {
+	font-size: 150%;
+}
+
+.entry-content h3 {
+	font-size: 110%;
+}
+
+.entry-content h4 {
+	font-size: 100%;
+}
+
+/* 
+* CSS FOR FRONTPAGE-TEMPLATE CONTENT
+*/
+
+/* Outer wrapping */
+.frontpage-primary {
+	margin: 5px 4.5% 10px 4.5%; /* top right bottom left */
+	background: #051012;
+}
+	
+/* Inner wrapping - currently doesn't really do anything but can be utilized */
+.frontpage-content {
+	padding: 2% 0 0 0;
+}
+
+.frontpage-content ul {
+	margin-left: 0.5em;
+}
+
+.frontpage-primary a,
+.frontpage-primary a:hover,
+.frontpage-primary a:focus,
+.frontpage-primary a:active {
+	color: #7FCFCF;
+}
+
+.frontpage-primary h1 {
+	font-size: 48px;	
+}
+
+.frontpage-primary h2 {
+	font-size: 20px;	
+}
+
+.frontpage-content-left, .frontpage-content-right {
+	margin: 1% 2% 0 0;
+}
+
+.frontpage-content li {
+	margin-bottom: 10px;
+	list-style-image: url('http://thelifestream.net/forums/images/statusicon/subforum_new.gif');
+}
+
+.frontpage-content .post_meta {
+	/*color: #ffffff;*/
+	font-size: 0.9em;
+	padding-left: 18px;
+	white-space:nowrap;
+}
+
+.frontpage-clear {
+	clear: both;
+}
+
+.frontpage-highlights {
+   clear:both;
+}
+.frontpage-highlights .frontpage-primary {
+   float:left;
+   margin: 5px 0 10px 4.5%;
+   width: 435px;
+   background-color: #080A0A;
+   border: 4px solid #001C1C;
+   border-top: 0;
+}
+
+.frontpage-highlights .frontpage-primary .frontpage-content {
+	padding: 5px 5px 5px 5px;
+}
+
+.frontpage-highlights .frontpage-primary .tls_border {
+  /* position wtfing*/
+  width: 392px;
+  margin-left: -4px;
+}
+/* Previews */
+
+/* IMAGE */
+.previews-top-right {
+	float: left;
+	width: 48%;
+	margin: 5px 2% 0 0; /* top right bottom left */
+	vertical-align: middle;
+}
+
+.previews-top-left h1  {
+	color: #88888F;
+	font-size: 32px;
+	line-height: 1.2em;
+	margin-bottom: 10px;
+}
+
+/* TEXT */
+.previews-top-left {
+	float: right;
+	width: 48%;
+	margin: 0 0 0 0; /* top right bottom left */
+
+}
+
+.previews-stories-category {
+	color: #829a8b;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	line-height: 1.3em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+}
+
+.previews-stories-category a {
+	color: #829a8b;
+}
+
+.previews-topstoryexcerpt {
+	font-size: 13px;
+	color: #829a8b;
+	line-height: 1.3em;
+	margin: 4% 0 0 0;
+}
+
+.preview-topstory-related {
+	float: right;
+	margin: 0px;
+	width: 48%;
+}
+
+.preview-topstory-related p {
+	font-size: 13px;
+	color: #829a8b;
+	line-height: 1.2em;
+	margin-top: 1em;
+	margin-bottom: 1.1em;
+}
+
+.preview-topstory-related ul li { 
+	color: #88888F;
+	font-size: 12px;
+	line-height: 1em;
+	list-style: square inside url("http://thelifestream.net/forums/images/statusicon/subforum_new.gif");
+}
+
+.preview-topstory-related ul {
+	margin: 0px 0px 0 0;
+}
+
+.previews-top-right img { /* Make sure picture is resized */
+	/*height: auto;*/
+	width: 100%;
+	border-bottom: 1px solid #000000;
+}
+
+#previews-medium {
+}
+
+.previews-medium-title h1 {
+	font-size: 20px;
+}
+
+.previews-left {
+	float: left;
+	width: 31%; /* was: 60 */
+	margin: 0 3% 0 0;
+	padding: 0px; /* was all: 1.63em 0px */
+}
+
+.previews-middle {
+	float: left;
+	width: 31%;
+	margin: 0px;
+	padding: 0px;
+	margin: 0 3% 0 0;
+}
+
+.previews-right {
+	float: right;
+	width: 31%;
+	padding: 0px;
+	/*padding: 1.63em 0px 0px;*/
+	/*margin: 0 -40% 0 0*/
+}
+
+.previews-left img {
+	width: 100%;
+	border-bottom: 1px solid #000000;
+}
+
+.previews-middle img {
+	width: 100%;
+	border-bottom: 1px solid #000000;
+}
+
+.previews-right img {
+	width: 100%;
+	border-bottom: 1px solid #000000;
+}
+
+.previews-clear {
+	clear: both;
+}
+
+.findmorenews {
+	margin: 10px 0 15px 0;
+	text-align: right;
+}
+
+/* Forumpulls */
+
+.forum-user {
+	font-size: 14px;
+	font-style: italic;	
+}
+
+.forum-thread {
+	font-weight: bold;
+}
+
+.forum-forum {
+	font-size: 12px;	
+}
+
+.single #author-info {
+   background: #f9f9f9;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
+   margin: 2.2em 0% 0 0%;
+   padding: 20px 35.4%;
+}
+
+/* Main menu */
+
+#access {
+  
+  width: 99.3%; /* This is the > 1000px screen version, go to bottom for pad/ cell phone versions */
+  margin-bottom: 0;
+
+  background: #222; /* Show a solid color for older browsers */
+  background: -moz-linear-gradient(#252525, #0a0a0a);
+  background: -o-linear-gradient(#252525, #0a0a0a);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0a0a0a)); /* older webkit syntax */
+  background: -webkit-linear-gradient(#252525, #0a0a0);
+
+  box-shadow: 0;
+  -moz-box-shadow:0;
+  -webkit-box-shadow:0;
+
+  /* just defining border-style apparently isn't enough in Firefox. Meh. */
+  border: 4px solid transparent;
+  border-top:0;
+  border-bottom:0;
+
+  -webkit-border-image: url("images/side-border-tall.png") 0 1 0 1 stretch stretch;
+  -o-border-image: url("images/side-border-tall.png") 0 1 0 1 stretch stretch;
+  -moz-border-image: url("images/side-border-tall.png") 0 1 0 1 stretch stretch;
+  border-image: url("images/side-border-tall.png") 0 1 0 1 stretch stretch;
+}
+
+#access div {
+  margin-top: 3px; /* prevents menu items overlapping with banner */
+}
+
+#access a {
+  color: #bccfcf;
+  font-family:'Radley';
+  font-size: 21px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  line-height: 2.333em;
+}
+
+#access .current-menu-item > a, #access .current-menu-ancestor > a, #access .current_page_item > a, #access .current_page_ancestor > a {
+	font-weight:normal;
+}
+
+#access li.menu-item .sub-menu a {
+  font: 14px Verdana, Sans-Serif;
+  text-transform:none;
+  font-variant:none;
+  background-color: #1E1E1E;
+  color: #7FCFCF;
+}
+
+#access ul ul a {
+  border-bottom: 1px dotted #051012;
+}
+/* main menu item hover */
+
+#access li:hover > a,
+#access ul ul :hover > a,
+#access ul.sub-menu li:hover > a,
+#access a:focus {
+  background: #7CCACA;
+  color:#123433;
+}
+
+#access ul.sub-menu li:hover > a {
+  border-bottom: 1px solid #7CCACA;
+}
+
+#access .sub-menu {
+  /*top: 3.73em;  highly tuned very specific value for perfect positioning justice */
+}
+
+/* Search form */
+#menu-search-form input#s {
+	height: 20px;
+	padding-top: 5px;
+}
+
+/* RSS icon */
+
+#rss-icon {
+  float: right;
+  position: absolute;
+  right: 25px;
+  margin-top: 7px;
+}
+
+#rss-icon a {
+  background-image: url('images/rss.png');
+  display:block;
+  width:28px;
+  height:28px;
+}
+
+/* Main page */
+
+#main, #colophon {
+  border-left: 4px solid #001C1C;
+  border-right: 4px solid #001C1C;
+  /* trick to make the div extend around the floating highlight divs */
+  overflow:hidden;
+}
+
+/* COMMENTS */
+
+/* comment listing */
+
+#comments #comments-title {
+  color: #7FCFCF;
+}
+
+.commentlist {
+  /* use moar width without moving avatars to the left */
+  width: 85%;
+  margin-left: 100px;
+}
+.commentlist > li.comment {
+  background-color: #051012;
+  border: 1px solid #001C1C;
+}
+
+/* nested comment */
+
+.commentlist .children > li.comment {
+  background-color: #051012;
+  border-color: #001C1C;
+}
+
+.commentlist > li::before, .commentlist > li.bypostauthor::before {
+  content: url('images/comment-arrow-tls.png');
+}
+
+/* reply button */
+
+a.comment-reply-link {
+  background-color: #1E1E1E;
+  color: #7FCFCF;
+  border: 1px solid #001C1C;
+  border-radius: 3px;
+}
+
+a.comment-reply-link:hover {
+  background-color: #7CCACA;
+  color: #123433;
+}
+
+/* comment form */
+
+#respond {
+   background-color: #051012;
+   border:0;
+   width: 95%
+}
+
+#comments #reply-title {
+  color: #7FCFCF;
+}
+
+
+#respond input[type="text"], #respond textarea {
+  color: #88888F;
+  background-color: #081517;
+  border: 1px solid #88888F;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+/* not sure what to do with these atm */
+#respond .comment-form-author label, #respond .comment-form-email label, #respond .comment-form-url label, #respond .comment-form-comment label {
+  color: #7FCFCF;
+  background-color: #1E1E1E;
+  border: 1px solid #001C1C;
+  border-radius: 3px;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+  top:41px;
+}
+
+#respond input#submit {
+  background-color: #1E1E1E;
+  color: #7FCFCF;
+  border: 1px solid #001C1C;
+  border-radius: 3px;
+}
+
+#respond input#submit:hover, #respond input#submit:active {
+  background-color: #7CCACA;
+  color: #123433;
+  border: 1px solid #001C1C;
+  border-radius: 3px;
+}
+
+/* /news comments bubble thing */
+
+.entry-header .comments-link a {
+  background: #C3C3C0 url('images/comment-bubble.png') no-repeat;
+  color: black;
+}
+
+.entry-header .comments-link a:hover,
+.entry-header .comments-link a:focus,
+.entry-header .comments-link a:active {
+  background-color: #C3C3C0;
+  text-decoration:underline;
+  color: black;
+}
+
+/* fix nav-next thing in chrome */
+#nav-single .nav-next {
+  padding-left:0;
+} 
+
+.entry-content th, .comment-content th {
+  line-height: 1.8em;
+  font-weight: bold;
+}
+
+/* in-post styles */
+
+.entry-content h3 {
+ font-family: 'Trebuchet MS';
+ font-weight: bold;
+ text-transform:none;
+ font-size: 1.3em;
+}
+
+/* hide author info, 
+
+/* Tables */
+
+.entry-content table {
+  border-width: 1px;
+  border-spacing: 2px;
+  border-style: solid;
+  border-collapse: collapse;
+  border-color: #ddd;
+  width:auto;
+}
+
+.entry-content th, .entry-content td {
+  border: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ddd;
+  padding: 2px 5px 2px 5px;
+}
+
+.entry-content th, .comment-content th {
+  line-height: 1.8em;
+  font-weight: bold;
+}
+
+/* specialized table styles */
+
+span.table-header {
+  color: #666;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: -19px;
+  display:block;
+}
+.entry-content table.centered-content td, .entry-content table.centered-content th {
+  text-align:center;
+}
+
+.entry-content table.no-borders, .entry-content table.no-borders td, .entry-content table.no-borders th {
+  border: 0;
+}
+
+/*
+used text: regular / bold test
+unlockable unused text: regular / normal text
+locked text: thick border / normal text
+*/
+
+.unused-Border-4 {
+	border: 4px;
+}
+
+.entry-content table.used-text, .entry-content table.used-text td, .entry-content table.used-text th {
+  font-weight: bold;
+}
+
+.entry-content table.unlockable-text, .entry-content table.unlockable-text td, .entry-content table.unlockable-text th {
+  /* nothing here */
+}
+
+.entry-content table.locked-text {
+  border-style: inset;
+  border-width: 4px;
+}
+
+.entry-content table.locked-text td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* 
+ * RESPONSIVE DESIGN - LEAVE AT THE BOTTOM OF THE SHEET (IMPORTANT FOR CASCADING)
+ */
+
+@media (max-width: 1000px) {
+	/* Simplify the basic layout */
+	
+	#access {
+		width: 99%;
+	}
+	
+	#featured {
+		margin: 0 2% 10px 2%;
+	}
+	
+	.frontpage-primary {
+		margin: 0;
+	}
+	
+	.previews-top-left {
+		float: right;
+		width: 40%;
+		margin: 0 2% 0 0; /* top right bottom left */
+		color: #88888F;
+		font-size: 16px;
+		vertical-align: middle;
+	}
+
+	.previews-top-left h1  {
+		font-size: 28px;
+	}
+
+	.previews-top-right {
+		float: left;
+		width: 50%;
+		margin: 0 0 0 2%; /* top right bottom left */
+	}
+	
+	.previews-topstoryexcerpt {
+		font-size: 14px;
+	}
+	
+	.preview-topstory-related {
+		float: none;
+		clear: both;
+		width: 100%;
+		padding-left: 2%;
+	}
+		
+}
+
+@media (max-width: 650px) {
+	/* @media (max-width: 650px) Reduce font-sizes for better readability on smaller devices */
+	
+	#access {
+  		width: 98.6%;
+	}
+	
+	#featured {
+		margin: 0 0 10px 0;
+	}
+	
+	.previews-top-left,
+	.previews-top-right {
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.previews-top-left h1  {
+		font-size: 24px;
+	}
+	
+	.previews-left,
+	.previews-middle,
+	.previews-right {
+		float: none;
+		width: 100%;
+		margin: 0 0 5% 0;
+	}
+	
+	.preview-topstory-related {
+		margin: 0;
+	}
+}
+
+/* Flare buttooonz */
+
+.flare-button-count {
+  color: #88888F !important;
+}
+
+/* BBSpoiler */
+
+.sp-wrap {
+  background-color: #1C1D1D !important;
+}
+
+.sp-head {
+  color: #7FCFCF !important;
+}
+
+.sp-body {
+  background-color: #051012 !important;
+  color: #88888F !important;
+}
